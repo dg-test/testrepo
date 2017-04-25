@@ -38,6 +38,11 @@ int main(int argc, char const *argv[]){
     glfwSwapInterval(1);
 
 
+    //Register callbacks
+    glfwSetErrorCallback(errorCallback);
+    glfwSetKeyCallback(window, keyCallback);
+
+
     //Initialize GLEW
     glewExperimental = GL_TRUE;
     if(glewInit() != GLEW_OK){
