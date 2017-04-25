@@ -10,7 +10,7 @@
 #CXX = g++
 
 EXE = hogeGL
-OBJS = src/main.o
+OBJS = main.o
 
 UNAME_S := $(shell uname -s)
 
@@ -55,18 +55,18 @@ all: $(EXE)
 
 $(EXE): $(OBJS)
 ifeq ($(UNAME_S), Darwin)
-	mkdir -p bin/$(EXE).app/Contents/MacOS
-	$(CXX) -o bin/$(EXE).app/Contents/MacOS/$(EXE) $(OBJS) $(CXXFLAGS) $(LIBS)
-	ln -sf ./bin/$(EXE).app/Contents/MacOS/$(EXE) $(EXE)
+	mkdir -p $(EXE).app/Contents/MacOS
+	$(CXX) -o $(EXE).app/Contents/MacOS/$(EXE) $(OBJS) $(CXXFLAGS) $(LIBS)
+	ln -sf ./$(EXE).app/Contents/MacOS/$(EXE) $(EXE)
 else
-	$(CXX) -o bin/$(EXE) $(OBJS) $(CXXFLAGS) $(LIBS)
+	$(CXX) -o $(EXE) $(OBJS) $(CXXFLAGS) $(LIBS)
 endif
 
 clean:
 ifeq ($(UNAME_S), Darwin)
-	rm -r bin/$(EXE).app
+	rm -r $(EXE).app
 	rm $(OBJS) $(EXE)
 else
-	rm bin/$(EXE) $(OBJS)
+	rm $(EXE) $(OBJS)
 endif
 
