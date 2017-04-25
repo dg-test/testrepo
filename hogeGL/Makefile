@@ -10,7 +10,7 @@
 #CXX = g++
 
 EXE = hogeGL
-OBJS = main.o
+OBJS = main.o fl1ne.o
 
 UNAME_S := $(shell uname -s)
 

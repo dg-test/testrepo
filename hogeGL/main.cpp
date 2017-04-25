@@ -2,6 +2,8 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#include "fl1ne.h"
+
 
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 450
